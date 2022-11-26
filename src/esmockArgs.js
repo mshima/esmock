@@ -12,6 +12,7 @@ const stackpathre = /^.*(\(|at )(.*):[\d]*:[\d]*.*$/
 //   [moduleId, parent, defs, gdefs, opts]
 //     -> [moduleId, parent, defs, gdefs, opts]
 export default (arg, optsextra) => {
+  console.log((new Error).stack);
   arg = typeof arg[1] === 'string' ? arg : [
     arg[0],
     (new Error).stack.split('\n')[3].replace(stackpathre, '$2'),
